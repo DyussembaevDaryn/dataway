@@ -1,5 +1,5 @@
 <!-- Navigation -->
-<nav [class]="'fixed w-full z-50 transition-all duration-300 ' + (isScrolled() ? 'bg-white/90 backdrop-blur-md border-b border-cream shadow-sm' : 'bg-transparent py-4')">
+<nav [class]="'fixed w-full z-50 transition-all duration-300 ' + (isScrolled() || isMenuOpen() ? 'bg-white/90 backdrop-blur-md border-b border-cream shadow-sm' : 'bg-transparent py-4')">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <div class="flex-shrink-0 flex items-center">
@@ -12,7 +12,7 @@
         <a href="#contact" [class]="'font-semibold transition-colors ' + (isScrolled() ? 'text-dark hover:text-accent' : 'text-white hover:text-gray-200')">Контакты</a>
       </div>
       <div class="md:hidden flex items-center">
-        <button (click)="toggleMenu()" [class]="'focus:outline-none cursor-pointer transition-colors ' + (isScrolled() ? 'text-dark hover:text-accent' : 'text-white hover:text-gray-200')">
+        <button (click)="toggleMenu()" [class]="'focus:outline-none cursor-pointer transition-colors ' + (isScrolled() || isMenuOpen() ? 'text-dark hover:text-accent' : 'text-white hover:text-gray-200')">
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             @if(!isMenuOpen()) {
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
@@ -28,12 +28,12 @@
 
   <!-- Mobile menu -->
   @if(isMenuOpen()) {
-    <div class="md:hidden bg-white/95 backdrop-blur-md border-b border-cream absolute w-full shadow-lg">
-      <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-        <a href="#home" (click)="toggleMenu()" class="block px-3 py-2 text-base font-semibold text-dark hover:text-accent hover:bg-cream-light rounded-md">Главная</a>
-        <a href="#about" (click)="toggleMenu()" class="block px-3 py-2 text-base font-semibold text-dark hover:text-accent hover:bg-cream-light rounded-md">О компании</a>
-        <a href="#news" (click)="toggleMenu()" class="block px-3 py-2 text-base font-semibold text-dark hover:text-accent hover:bg-cream-light rounded-md">Новости</a>
-        <a href="#contact" (click)="toggleMenu()" class="block px-3 py-2 text-base font-semibold text-dark hover:text-accent hover:bg-cream-light rounded-md">Контакты</a>
+    <div class="md:hidden bg-white/95 backdrop-blur-xl fixed inset-0 z-40 flex flex-col items-center justify-center pt-20">
+      <div class="flex flex-col items-center space-y-6 w-full px-6">
+        <a href="#home" (click)="toggleMenu()" class="block w-full text-center px-4 py-3 text-2xl font-semibold text-dark hover:text-accent hover:bg-cream-light rounded-xl transition-all">Главная</a>
+        <a href="#about" (click)="toggleMenu()" class="block w-full text-center px-4 py-3 text-2xl font-semibold text-dark hover:text-accent hover:bg-cream-light rounded-xl transition-all">О компании</a>
+        <a href="#news" (click)="toggleMenu()" class="block w-full text-center px-4 py-3 text-2xl font-semibold text-dark hover:text-accent hover:bg-cream-light rounded-xl transition-all">Новости</a>
+        <a href="#contact" (click)="toggleMenu()" class="block w-full text-center px-4 py-3 text-2xl font-semibold text-dark hover:text-accent hover:bg-cream-light rounded-xl transition-all">Контакты</a>
       </div>
     </div>
   }
@@ -76,7 +76,7 @@
   </div>
 
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="text-center mb-20 reveal">
+    <div class="flex flex-col items-center gap-3 text-center mb-20 reveal">
       <h2 class="text-4xl font-normal text-dark tracking-tight mb-4">От запроса к результату</h2>
       <p class="text-lg text-gray-600 max-w-2xl mx-auto">
         Подготавливаем детальное техническое и коммерческое предложение с оптимальными сроками поставки и прозрачными условиями.
@@ -93,7 +93,7 @@
           <img src="assets/images/feature-email.png" alt="Заявка" class="w-48 h-auto object-contain drop-shadow-xl hover:-translate-y-2 transition-transform duration-500">
         </div>
         <div class="absolute left-1/2 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 max-md:left-6 w-8 h-8 bg-dark text-white rounded-full flex items-center justify-center font-bold z-10 text-sm shadow-md">1</div>
-        <div class="w-full md:w-1/2 md:pl-20 max-md:pl-16 text-center md:text-left">
+        <div class="w-full md:w-1/2 md:pl-20 max-md:pl-16 text-left md:text-left">
           <h3 class="text-2xl font-normal text-dark mb-3">Заявка</h3>
           <p class="text-gray-600">Оставьте запрос любым удобным способом. Мы свяжемся с вами, чтобы уточнить задачи, требования и цели проекта.</p>
         </div>
@@ -105,7 +105,7 @@
           <img src="assets/images/architecture-design.png" alt="Подбор решения" class="w-48 h-auto object-contain drop-shadow-xl hover:-translate-y-2 transition-transform duration-500">
         </div>
         <div class="absolute left-1/2 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 max-md:left-6 w-8 h-8 bg-dark text-white rounded-full flex items-center justify-center font-bold z-10 text-sm shadow-md">2</div>
-        <div class="w-full md:w-1/2 md:pr-20 max-md:pl-16 text-center md:text-right">
+        <div class="w-full md:w-1/2 md:pr-20 max-md:pl-16 text-left md:text-right">
           <h3 class="text-2xl font-normal text-dark mb-3">Подбор решения</h3>
           <p class="text-gray-600">Анализируем инфраструктуру и подбираем оптимальную конфигурацию серверного, сетевого оборудования, СХД или HCI под ваши задачи.</p>
         </div>
@@ -117,7 +117,7 @@
           <img src="assets/images/document-check.png" alt="Коммерческое предложение" class="w-48 h-auto object-contain drop-shadow-xl hover:-translate-y-2 transition-transform duration-500">
         </div>
         <div class="absolute left-1/2 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 max-md:left-6 w-8 h-8 bg-dark text-white rounded-full flex items-center justify-center font-bold z-10 text-sm shadow-md">3</div>
-        <div class="w-full md:w-1/2 md:pl-20 max-md:pl-16 text-center md:text-left">
+        <div class="w-full md:w-1/2 md:pl-20 max-md:pl-16 text-left md:text-left">
           <h3 class="text-2xl font-normal text-dark mb-3">Коммерческое предложение</h3>
           <p class="text-gray-600">Подготавливаем детальное техническое и коммерческое предложение с оптимальными сроками поставки и прозрачными условиями.</p>
         </div>
@@ -129,7 +129,7 @@
           <img src="assets/images/fast-delivery.png" alt="Поставка оборудования" class="w-48 h-auto object-contain drop-shadow-xl hover:-translate-y-2 transition-transform duration-500">
         </div>
         <div class="absolute left-1/2 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 max-md:left-6 w-8 h-8 bg-dark text-white rounded-full flex items-center justify-center font-bold z-10 text-sm shadow-md">4</div>
-        <div class="w-full md:w-1/2 md:pr-20 max-md:pl-16 text-center md:text-right">
+        <div class="w-full md:w-1/2 md:pr-20 max-md:pl-16 text-left md:text-right">
           <h3 class="text-2xl font-normal text-dark mb-3">Поставка оборудования</h3>
           <p class="text-gray-600">Организуем своевременную поставку оборудования, контролируем комплектацию и обеспечиваем сохранность на всех этапах.</p>
         </div>
@@ -141,7 +141,7 @@
           <img src="assets/images/system-integration.png" alt="Внедрение" class="w-48 h-auto object-contain drop-shadow-xl hover:-translate-y-2 transition-transform duration-500">
         </div>
         <div class="absolute left-1/2 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 max-md:left-6 w-8 h-8 bg-dark text-white rounded-full flex items-center justify-center font-bold z-10 text-sm shadow-md">5</div>
-        <div class="w-full md:w-1/2 md:pl-20 max-md:pl-16 text-center md:text-left">
+        <div class="w-full md:w-1/2 md:pl-20 max-md:pl-16 text-left md:text-left">
           <h3 class="text-2xl font-normal text-dark mb-3">Внедрение</h3>
           <p class="text-gray-600">Выполняем настройку, ввод в эксплуатацию и техническое сопровождение, чтобы инфраструктура была готова к работе с первого дня.</p>
         </div>
@@ -222,6 +222,52 @@
   </div>
 </section>
 
+
+<!-- Certificates Section -->
+<section id="certificates" class="py-24 bg-white overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal active">
+      <h2 class="text-4xl font-normal text-dark tracking-tight">Партнёрские сертификаты</h2>
+    </div>
+    
+    <!-- Carousel Container -->
+    <div class="relative w-full overflow-hidden" (mouseenter)="pauseCarousel()" (mouseleave)="resumeCarousel()">
+      <div class="flex gap-8 transition-transform duration-[100ms] ease-linear w-max cursor-grab active:cursor-grabbing" 
+           #carouselContainer
+           [style.transform]="'translateX(' + currentTranslate + 'px)'"
+           (mousedown)="onDragStart($event)" 
+           (touchstart)="onDragStart($event)"
+           (mousemove)="onDragMove($event)" 
+           (touchmove)="onDragMove($event)"
+           (mouseup)="onDragEnd()" 
+           (mouseleave)="onDragEnd()"
+           (touchend)="onDragEnd()">
+        
+        @for (cert of displayCertificates; track $index) {
+          <div class="flex-shrink-0 w-[300px] md:w-[400px] group">
+            <div class="bg-white rounded-xl p-4 shadow-sm border border-gray-100 hover:shadow-xl hover:border-accent/30 transition-all duration-300 transform group-hover:-translate-y-2">
+              <a [href]="cert.url" target="_blank" class="block cursor-pointer">
+                <!-- Using index from absolute display list to ensure unique IDs if needed, or simply render canvas inside ts -->
+                <div [id]="'pdf-container-' + $index" class="w-full min-h-[400px] rounded shadow-sm bg-gray-50 flex items-center justify-center overflow-hidden">
+                  <canvas [id]="'pdf-canvas-' + $index" class="w-full h-auto"></canvas>
+                  <!-- Loading skeleton -->
+                  <div [id]="'pdf-loader-' + $index" class="absolute text-gray-400">
+                     <svg class="animate-spin h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                  </div>
+                </div>
+
+              </a>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- News Section -->
 <section id="news" class="py-24 bg-cream-light">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -271,9 +317,9 @@
     </div>
 
     <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 reveal delay-100">
-      <img src="assets/images/hp.png" alt="HP Logo" class="h-16 md:h-20 object-contain ">
-      <img src="assets/images/NZS.png" alt="Partner Logo" class="h-16 md:h-20 object-contain ">
-      <img src="assets/images/sangfor.png" alt="Sangfor Logo" class="h-16 md:h-20 object-contain ">
+      <img src="assets/images/hp.png" alt="HP Logo" class="h-16 md:h-30 object-contain ">
+      <img src="assets/images/NZS.png" alt="Partner Logo" class="h-16 md:h-30 object-contain ">
+      <img src="assets/images/sangfor.png" alt="Sangfor Logo" class="h-16 md:h-25 object-contain ">
     </div>
   </div>
 </section>
@@ -347,7 +393,7 @@
   <div class="flex flex-col gap-5 justify-center items-center py-32 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto text-center reveal">
     <h2 class="text-4xl md:text-5xl font-normal text-dark tracking-tight mb-16">Готовы обсудить ваш проект?</h2>
     <p class="text-xl text-gray-600 mb-20 max-w-xl mx-auto leading-normal">
-      Оставьте заявку — подберём оборудование под вашу задачу<br>и<br>подготовим коммерческое предложение.
+      Оставьте заявку — подберём оборудование под вашу задачу и подготовим коммерческое предложение.
     </p>
     <button (click)="openModal()" class="w-[236px] items-center justify-center px-10 py-4 border-2 border-gray-300 text-base font-semibold rounded-md text-dark bg-transparent hover:border-dark hover:bg-gray-50 transition-all duration-300 cursor-pointer">
       Оставить заявку
