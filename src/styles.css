@@ -277,3 +277,5 @@ select {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+.modal-backdrop-blur { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
