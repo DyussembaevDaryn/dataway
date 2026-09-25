@@ -70,7 +70,7 @@ import { RouterLink } from '@angular/router';
 
               <div class="text-sm text-dark font-medium space-y-1 mb-12">
                 <p>office&#64;dataway.kz</p>
-<!--                <p>123-456-789</p>-->
+                <p>8 777 110 02 22</p>
 <!--                <p>123-456-789</p>-->
               </div>
 
