@@ -29,7 +29,7 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
           </div>
 
           <!-- Cards on the right -->
-          <div class="w-full lg:w-3/4 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="w-full lg:w-3/4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             
             <div class="bg-[#FFFFFF] border border-gray-300 rounded p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
               <div class="h-20 mb-8 flex items-start justify-start">
@@ -52,6 +52,22 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
                  <img src="assets/images/sangfor.png" class="h-12 w-auto object-contain" alt="Sangfor">
               </div>
               <div class="flex-1">
+                <h3 class="text-sm font-medium text-dark mb-4 leading-snug">Гиперконвергентная<br>инфраструктура нового<br>поколения</h3>
+                <p class="text-[13px] text-dark mb-2 font-normal">Основные решения</p>
+                <ul class="text-[13px] text-dark space-y-1 font-normal" style="list-style-type: disc; padding-left: 1.25rem;">
+                  <li>HCI</li>
+                  <li>Виртуализация</li>
+                  <li>Backup</li>
+                  <li>Облачная инфраструктура</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-[#FFFFFF] border border-gray-300 rounded p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+              <div class="h-20 mb-8 flex items-start justify-start">
+                 <img src="assets/images/h3c.png" class="h-12 w-auto object-contain" alt="H3C">
+              </div>
+              <div class="flex-1">
                 <h3 class="text-sm font-medium text-dark mb-4 leading-snug">Современная сетевая<br>инфраструктура</h3>
                 <p class="text-[13px] text-dark mb-2 font-normal">Основные решения</p>
                 <ul class="text-[13px] text-dark space-y-1 font-normal" style="list-style-type: disc; padding-left: 1.25rem;">
@@ -65,16 +81,32 @@ import { Component, AfterViewInit, ElementRef } from '@angular/core';
 
             <div class="bg-[#FFFFFF] border border-gray-300 rounded p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
               <div class="h-20 mb-8 flex items-start justify-start">
-                 <img src="assets/images/NZS.png" class="h-12 w-auto object-contain" alt="NZS">
+                 <img src="assets/images/huawei.png" class="h-16 w-auto object-contain" alt="Huawei">
               </div>
               <div class="flex-1">
-                <h3 class="text-sm font-medium text-dark mb-4 leading-snug">Гиперконвергентная<br>инфраструктура нового<br>поколения</h3>
+                <h3 class="text-sm font-medium text-dark mb-4 leading-snug">Сетевое оборудование и<br>системы хранения данных</h3>
                 <p class="text-[13px] text-dark mb-2 font-normal">Основные решения</p>
                 <ul class="text-[13px] text-dark space-y-1 font-normal" style="list-style-type: disc; padding-left: 1.25rem;">
-                  <li>HCI</li>
-                  <li>Виртуализация</li>
-                  <li>Backup</li>
-                  <li>Облачная инфраструктура</li>
+                  <li>Коммутаторы и маршрутизаторы</li>
+                  <li>Системы хранения данных</li>
+                  <li>Серверы</li>
+                  <li>Wi-Fi</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="bg-[#FFFFFF] border border-gray-300 rounded p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full">
+              <div class="h-20 mb-8 flex items-start justify-start">
+                 <img src="assets/images/dell.png" class="h-16 w-auto object-contain" alt="Dell">
+              </div>
+              <div class="flex-1">
+                <h3 class="text-sm font-medium text-dark mb-4 leading-snug">Серверы, системы хранения<br>и рабочие станции</h3>
+                <p class="text-[13px] text-dark mb-2 font-normal">Основные решения</p>
+                <ul class="text-[13px] text-dark space-y-1 font-normal" style="list-style-type: disc; padding-left: 1.25rem;">
+                  <li>Rack и Tower серверы</li>
+                  <li>Системы хранения данных</li>
+                  <li>Системы резервного копирования</li>
+                  <li>Рабочие станции</li>
                 </ul>
               </div>
             </div>

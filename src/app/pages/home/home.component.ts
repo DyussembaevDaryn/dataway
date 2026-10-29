@@ -193,10 +193,12 @@ import { RouterLink } from '@angular/router';
       <h2 class="text-4xl font-normal text-dark tracking-tight">Наши партнёры</h2>
     </div>
 
-    <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24 reveal delay-100">
-      <img src="assets/images/hp.png" alt="HP Logo" class="h-16 md:h-30 object-contain ">
-      <img src="assets/images/NZS.png" alt="Partner Logo" class="h-16 md:h-30 object-contain ">
-      <img src="assets/images/sangfor.png" alt="Sangfor Logo" class="h-16 md:h-25 object-contain ">
+    <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16 lg:gap-20 reveal delay-100">
+      <img src="assets/images/hp.png" alt="HP Logo" class="h-14 md:h-24 object-contain">
+      <img src="assets/images/dell.png" alt="Dell Logo" class="h-14 md:h-24 object-contain">
+      <img src="assets/images/huawei.png" alt="Huawei Logo" class="h-14 md:h-24 object-contain">
+      <img src="assets/images/h3c.png" alt="H3C Logo" class="h-14 md:h-24 object-contain">
+      <img src="assets/images/sangfor.png" alt="Sangfor Logo" class="h-12 md:h-20 object-contain">
     </div>
   </div>
 </section>
